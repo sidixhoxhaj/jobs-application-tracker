@@ -1,8 +1,8 @@
 // Design Tokens Index
-// Imports all design token files for easy access
-// Import this file in components: @import '../../styles/tokens';
+// Forwards all design token files for easy access
+// Use this file in components: @use '../../styles/tokens' as *;
 
-@import './colors';
-@import './spacing';
-@import './typography';
-@import './breakpoints';
+@forward './colors';
+@forward './spacing';
+@forward './typography';
+@forward './breakpoints';
