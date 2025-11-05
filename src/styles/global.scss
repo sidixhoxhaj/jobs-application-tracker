@@ -1,0 +1,215 @@
+// Global Styles - Vercel-inspired Minimal Design
+@import './tokens';
+
+// Import Inter font from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+// CSS Reset & Base Styles
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-sm;  // Vercel uses 14px as base
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  background-color: $color-background;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+// Typography Base Styles - Minimal, Vercel-style
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  letter-spacing: $heading-letter-spacing;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: $font-size-3xl;
+}
+
+h3 {
+  font-size: $font-size-2xl;
+}
+
+h4 {
+  font-size: $font-size-xl;
+}
+
+h5 {
+  font-size: $font-size-lg;
+}
+
+h6 {
+  font-size: $font-size-base;
+}
+
+p {
+  margin: 0;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+// Link Styles - Vercel minimalist
+a {
+  color: $color-text-primary;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $color-text-secondary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-focus;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+// Button Reset
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+
+  &:focus-visible {
+    outline: 2px solid $color-focus;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// Input Reset - Vercel style
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $spacing-sm $spacing-md;
+  transition: border-color 0.15s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-border-focus;
+  }
+
+  &::placeholder {
+    color: $color-text-tertiary;
+  }
+}
+
+// List Styles
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Image Styles
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Table Reset
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// Code blocks
+code {
+  font-family: $font-family-mono;
+  font-size: 0.9em;
+  background: $color-gray-100;
+  padding: 0.125rem 0.25rem;
+  border-radius: $radius-sm;
+}
+
+// Scrollbar Styles - Minimal
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-gray-300;
+  border-radius: $radius-full;
+
+  &:hover {
+    background: $color-gray-400;
+  }
+}
+
+// Selection
+::selection {
+  background: $color-black;
+  color: $color-white;
+}
+
+// Focus visible - Global focus style
+:focus-visible {
+  outline: 2px solid $color-focus;
+  outline-offset: 2px;
+}
+
+// Utility Classes
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Divider/Separator - Vercel style
+hr {
+  border: none;
+  border-top: 1px solid $color-border;
+  margin: $spacing-lg 0;
+}

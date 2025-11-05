@@ -1,0 +1,41 @@
+// Breakpoint Design Tokens
+// Responsive breakpoints for mobile-first design
+
+// Breakpoint Values
+$breakpoint-sm: 640px;   // Small devices (large phones)
+$breakpoint-md: 768px;   // Medium devices (tablets)
+$breakpoint-lg: 1024px;  // Large devices (laptops)
+$breakpoint-xl: 1280px;  // Extra large devices (desktops)
+$breakpoint-2xl: 1536px; // 2X large devices (large desktops)
+
+// Media Query Mixins for easier usage
+@mixin mobile-only {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin large-desktop-up {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// Custom breakpoint mixin
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}

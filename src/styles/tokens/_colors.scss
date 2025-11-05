@@ -1,0 +1,72 @@
+// Color Design Tokens - Vercel-inspired Minimal Design
+// Clean, professional black/white/gray palette
+
+// Base Colors - Minimal palette
+$color-black: #000000;
+$color-white: #FFFFFF;
+
+// Gray Scale (Vercel-style)
+$color-gray-50: #FAFAFA;
+$color-gray-100: #F5F5F5;
+$color-gray-200: #E5E5E5;
+$color-gray-300: #D4D4D4;
+$color-gray-400: #A3A3A3;
+$color-gray-500: #737373;
+$color-gray-600: #525252;
+$color-gray-700: #404040;
+$color-gray-800: #262626;
+$color-gray-900: #171717;
+
+// Primary - Black/White based
+$color-primary: $color-black;
+$color-primary-hover: $color-gray-800;
+
+// Text Colors
+$color-text-primary: $color-black;
+$color-text-secondary: $color-gray-600;
+$color-text-tertiary: $color-gray-400;
+$color-text-disabled: $color-gray-300;
+$color-text-inverse: $color-white;
+
+// Background Colors
+$color-background: $color-white;
+$color-background-secondary: $color-gray-50;
+$color-background-hover: $color-gray-100;
+$color-surface: $color-white;
+$color-overlay: rgba(0, 0, 0, 0.5);
+
+// Border Colors
+$color-border: $color-gray-200;
+$color-border-light: $color-gray-100;
+$color-border-dark: $color-gray-300;
+$color-border-focus: $color-black;
+
+// Status Colors - Keep functional colors minimal but distinct
+$color-status-applied: #0070F3;        // Vercel blue
+$color-status-screening: #7928CA;       // Purple
+$color-status-interview-scheduled: #F5A623;  // Orange
+$color-status-interview-completed: #50E3C2;  // Teal
+$color-status-offer: #00C853;           // Green
+$color-status-rejected: #E00;           // Red
+$color-status-withdrawn: $color-gray-400;    // Gray
+
+// Semantic Colors - Minimal
+$color-success: #00C853;
+$color-warning: #F5A623;
+$color-danger: #E00;
+$color-info: #0070F3;
+
+// Interactive States
+$color-hover: $color-gray-50;
+$color-active: $color-gray-100;
+$color-focus: $color-black;
+$color-disabled: $color-gray-100;
+
+// Shadows - Very subtle, Vercel-style
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
+$shadow-xl: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+
+// Accent for borders/dividers
+$color-accent: $color-gray-200;
