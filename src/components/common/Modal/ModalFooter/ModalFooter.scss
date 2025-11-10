@@ -1,0 +1,22 @@
+// ModalFooter Styles
+@use '../../../../styles/tokens' as *;
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: $spacing-md;
+  padding-top: $spacing-lg;
+  border-top: 1px solid var(--color-border);
+
+  // Mobile responsiveness
+  @include mobile-only {
+    flex-direction: column-reverse; // Cancel first, then Save
+    gap: $spacing-sm;
+
+    button {
+      width: 100%; // Full-width buttons on mobile
+      min-height: 44px; // Larger touch targets
+    }
+  }
+}

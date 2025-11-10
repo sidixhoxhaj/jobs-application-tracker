@@ -1,0 +1,172 @@
+// Modal Styles
+@use '../../../styles/tokens' as *;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-overlay);
+  backdrop-filter: blur(4px);
+  padding: $spacing-lg;
+  animation: fadeIn 0.2s ease;
+
+  &__content {
+    background-color: var(--color-background-secondary);
+    border-radius: $radius-lg;
+    box-shadow: var(--shadow-xl);
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideIn 0.2s ease;
+    border: 1px solid var(--color-border);
+
+    &:focus {
+      outline: none;
+    }
+
+    // Sizes
+    &--small {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    &--medium {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    &--large {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    // Custom scrollbar
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--color-background-secondary);
+      border-radius: $radius-sm;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-border-dark);
+      border-radius: $radius-sm;
+
+      &:hover {
+        background: var(--color-gray-400);
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-lg;
+    gap: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: var(--color-text-primary);
+    margin: 0;
+    letter-spacing: $letter-spacing-tight;
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-sm;
+    color: var(--color-text-secondary);
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+      background-color: var(--color-hover);
+      color: var(--color-text-primary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-border-focus);
+      outline-offset: 2px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__body {
+    padding: $spacing-lg;
+  }
+
+  // Responsive: Mobile
+  @include mobile-only {
+    padding: $spacing-sm; // Smaller padding on mobile
+
+    &__content {
+      max-height: 95vh;
+      border-radius: $radius-md; // Slightly smaller border radius
+
+      &--small,
+      &--medium,
+      &--large {
+        max-width: 100%;
+        margin: 0; // Full width with no margin
+      }
+    }
+
+    &__header {
+      padding: $spacing-md $spacing-lg; // Consistent padding
+    }
+
+    &__title {
+      font-size: $font-size-base; // Slightly smaller title
+    }
+
+    &__close {
+      width: 36px; // Larger close button for easier tapping
+      height: 36px;
+    }
+
+    &__body {
+      padding: $spacing-md $spacing-lg; // Consistent padding
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
