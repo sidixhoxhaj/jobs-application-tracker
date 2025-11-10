@@ -3,6 +3,7 @@
 // Use this file in components: @use '../../styles/tokens' as *;
 
 @forward './colors';
+@forward './theme-colors';
 @forward './spacing';
 @forward './typography';
 @forward './breakpoints';
