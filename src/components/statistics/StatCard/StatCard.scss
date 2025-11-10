@@ -1,0 +1,86 @@
+// StatCard Styles
+@use '../../../styles/tokens' as *;
+
+.stat-card {
+  padding: $spacing-lg;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-border-dark);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-sm;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--color-text-secondary);
+    font-size: $font-size-xl;
+  }
+
+  &__value {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  &__trend {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+
+    &--up {
+      color: var(--color-success);
+    }
+
+    &--down {
+      color: var(--color-danger);
+    }
+  }
+
+  &__trend-icon {
+    font-size: $font-size-base;
+  }
+
+  &__trend-value {
+    // Inherits color from parent
+  }
+}
+
+// Responsive
+@include mobile-only {
+  .stat-card {
+    padding: $spacing-md;
+
+    &__value {
+      font-size: $font-size-2xl;
+    }
+  }
+}

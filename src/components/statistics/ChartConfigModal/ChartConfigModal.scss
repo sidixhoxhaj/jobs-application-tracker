@@ -1,0 +1,393 @@
+// Chart Config Modal Styles
+@use '../../../styles/tokens' as *;
+
+.chart-config-modal {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: var(--color-text-primary);
+    margin: 0;
+    letter-spacing: $letter-spacing-tight;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding: $spacing-xs;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-primary);
+  }
+
+  &__required {
+    color: var(--color-danger);
+  }
+
+  &__hint {
+    font-size: $font-size-xs;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  &__color-picker {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__color-input {
+    width: 60px;
+    height: 40px;
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--color-gray-400);
+    }
+  }
+
+  &__color-value {
+    font-size: $font-size-sm;
+    font-family: $font-family-mono;
+    color: var(--color-text-secondary);
+  }
+
+  &__series-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__series-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__series-item {
+    display: flex;
+    gap: $spacing-sm;
+    padding: $spacing-md;
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+  }
+
+  &__series-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: var(--color-gray-600);
+  }
+
+  &__series-fields {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 2fr auto auto;
+    gap: $spacing-sm;
+    align-items: start;
+  }
+
+  &__series-field {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    &--color {
+      width: 80px;
+    }
+  }
+
+  &__series-label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-secondary);
+  }
+
+  &__series-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--color-text-secondary);
+
+    &:hover {
+      background: var(--color-hover);
+      border-color: var(--color-danger);
+      color: var(--color-danger);
+    }
+  }
+
+  &__error {
+    font-size: $font-size-sm;
+    color: var(--color-warning);
+    margin-top: $spacing-xs;
+  }
+
+  &__reorder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-sm;
+  }
+
+  &__position {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-secondary);
+  }
+
+  &__reorder-buttons {
+    display: flex;
+    gap: $spacing-xs;
+  }
+}
+
+// Chart Type Selector
+.chart-type-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: $spacing-md;
+
+  &__option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-md;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &:hover {
+      border-color: var(--color-gray-400);
+      box-shadow: var(--shadow-sm);
+    }
+
+    &--selected {
+      border-color: var(--color-primary);
+      background: var(--color-background-secondary);
+
+      .chart-type-selector__icon {
+        color: var(--color-primary);
+      }
+    }
+
+    &--not-recommended {
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__icon {
+    color: var(--color-gray-600);
+    transition: color 0.2s ease;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-primary);
+    text-align: center;
+  }
+
+  &__badge {
+    position: absolute;
+    top: $spacing-xs;
+    right: $spacing-xs;
+    font-size: $font-size-xs;
+    padding: 2px $spacing-xs;
+    background: var(--color-primary);
+    color: var(--color-surface);
+    border-radius: $radius-sm;
+  }
+}
+
+// Data Source Selector
+.data-source-selector {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  &__radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__radio {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    padding: $spacing-md;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    input[type='radio'] {
+      margin-top: 2px;
+      cursor: pointer;
+    }
+
+    &:hover {
+      border-color: var(--color-gray-400);
+      box-shadow: var(--shadow-sm);
+    }
+
+    input[type='radio']:checked + &-content {
+      .data-source-selector__radio-label {
+        color: var(--color-primary);
+        font-weight: $font-weight-semibold;
+      }
+    }
+  }
+
+  &__radio-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  &__radio-label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-primary);
+  }
+
+  &__radio-description {
+    font-size: $font-size-sm;
+    color: var(--color-text-secondary);
+  }
+
+  &__field-select {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding: $spacing-md;
+    background: var(--color-background-secondary);
+    border-radius: $radius-md;
+  }
+
+  &__field-info {
+    padding: $spacing-sm;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-sm;
+  }
+
+  &__field-details {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    font-size: $font-size-sm;
+  }
+
+  &__field-type {
+    color: var(--color-text-primary);
+    font-weight: $font-weight-medium;
+  }
+
+  &__field-options {
+    color: var(--color-text-secondary);
+  }
+}
+
+// Responsive
+@include mobile-only {
+  .chart-config-modal {
+    &__body {
+      max-height: 50vh;
+    }
+
+    &__reorder {
+      flex-direction: column;
+      align-items: stretch;
+      gap: $spacing-sm;
+    }
+
+    &__position {
+      text-align: center;
+    }
+
+    &__reorder-buttons {
+      justify-content: stretch;
+
+      button {
+        flex: 1;
+      }
+    }
+
+    &__footer {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  .chart-type-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

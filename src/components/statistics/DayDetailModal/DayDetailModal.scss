@@ -1,0 +1,111 @@
+// DayDetailModal Styles
+@use '../../../styles/tokens' as *;
+
+.day-detail-modal {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  min-height: 200px;
+
+  &__header {
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__count {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-gray-600);
+    margin: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__item {
+    padding: $spacing-md;
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--color-gray-400);
+      box-shadow: var(--shadow-sm);
+      background: var(--color-hover);
+    }
+
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+
+  &__item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__company {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: var(--color-primary);
+    margin: 0;
+    flex: 1;
+  }
+
+  &__status {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: var(--color-gray-600);
+    padding: $spacing-xs $spacing-sm;
+    background: var(--color-background-hover);
+    border-radius: $radius-sm;
+  }
+
+  &__position {
+    font-size: $font-size-sm;
+    color: var(--color-gray-600);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  &__hint {
+    font-size: $font-size-xs;
+    color: var(--color-gray-400);
+    margin: 0;
+    font-style: italic;
+  }
+
+  &__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: var(--color-text-secondary);
+    font-size: $font-size-sm;
+  }
+}
+
+// Responsive
+@include mobile-only {
+  .day-detail-modal {
+    &__item {
+      padding: $spacing-sm;
+    }
+
+    &__item-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__company {
+      font-size: $font-size-sm;
+    }
+  }
+}

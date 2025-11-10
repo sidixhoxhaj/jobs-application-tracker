@@ -1,0 +1,15 @@
+// OverviewCards Styles
+@use '../../../styles/tokens' as *;
+
+.overview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: $spacing-md;
+}
+
+// Responsive
+@include mobile-only {
+  .overview-cards {
+    grid-template-columns: 1fr;
+  }
+}

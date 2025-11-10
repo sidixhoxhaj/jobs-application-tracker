@@ -1,0 +1,203 @@
+// DateRangeSelector Styles
+@use '../../../styles/tokens' as *;
+
+.date-range-selector {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-gray-700);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+
+  &__button {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-gray-700);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--color-background-secondary);
+      border-color: var(--color-gray-400);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    &.active {
+      background: var(--color-primary);
+      color: var(--color-surface);
+      border-color: var(--color-primary);
+
+      &:hover {
+        background: var(--color-gray-900);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__custom {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    background: var(--color-background-secondary);
+    border-radius: $radius-sm;
+    animation: slideDown 0.2s ease;
+  }
+
+  &__custom-inputs {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+  }
+
+  &__input-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    flex: 1;
+    min-width: 180px;
+
+    label {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      color: var(--color-gray-700);
+    }
+
+    input[type='date'] {
+      padding: $spacing-sm;
+      font-size: $font-size-sm;
+      color: var(--color-gray-900);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-dark);
+      border-radius: $radius-sm;
+      transition: border-color 0.2s ease;
+
+      &:hover {
+        border-color: var(--color-gray-400);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 1px var(--color-border-focus);
+      }
+    }
+  }
+
+  &__custom-actions {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  &__apply-button,
+  &__cancel-button {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+  }
+
+  &__apply-button {
+    background: var(--color-primary);
+    color: var(--color-surface);
+
+    &:hover:not(:disabled) {
+      background: var(--color-gray-900);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__cancel-button {
+    background: var(--color-surface);
+    color: var(--color-gray-700);
+    border: 1px solid var(--color-border-dark);
+
+    &:hover {
+      background: var(--color-background-secondary);
+      border-color: var(--color-gray-400);
+    }
+  }
+}
+
+// Animation
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@include mobile-only {
+  .date-range-selector {
+    padding: $spacing-md;
+
+    &__buttons {
+      flex-direction: column;
+    }
+
+    &__button {
+      width: 100%;
+      text-align: left;
+    }
+
+    &__custom-inputs {
+      flex-direction: column;
+    }
+
+    &__input-group {
+      min-width: 100%;
+    }
+
+    &__custom-actions {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+// Dynamic Overview Card Styles
+@use '../../../styles/tokens' as *;
+
+.dynamic-overview-card {
+  padding: $spacing-lg;
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  transition: all 0.2s ease;
+  position: relative;
+
+  &:hover {
+    border-color: var(--color-border-dark);
+    box-shadow: var(--shadow-sm);
+
+    .card-actions {
+      opacity: 1;
+    }
+  }
+
+  &__header {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding-right: $spacing-2xl; // Space for actions
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__value {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+}
+
+// Card Actions
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--color-gray-600);
+
+    &:hover {
+      background: var(--color-hover);
+      border-color: var(--color-gray-400);
+      color: var(--color-primary);
+    }
+
+    &--edit {
+      &:hover {
+        background: var(--color-background-hover);
+      }
+    }
+
+    &--delete {
+      &:hover {
+        background: var(--color-hover);
+        border-color: var(--color-danger);
+        color: var(--color-danger);
+      }
+    }
+  }
+}
+
+// Responsive
+@include mobile-only {
+  .dynamic-overview-card {
+    padding: $spacing-md;
+
+    &__value {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  .card-actions {
+    opacity: 1; // Always visible on mobile
+  }
+}
