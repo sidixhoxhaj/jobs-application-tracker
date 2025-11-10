@@ -1,0 +1,40 @@
+// FormField Styles
+@use '../../../styles/tokens' as *;
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-primary);
+    margin-bottom: $spacing-xs;
+  }
+
+  &__required {
+    color: var(--color-danger);
+    margin-left: $spacing-xs;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__error {
+    font-size: $font-size-xs;
+    color: var(--color-danger);
+    margin-top: $spacing-xs;
+    display: block;
+  }
+
+  &__helper {
+    font-size: $font-size-xs;
+    color: var(--color-text-secondary);
+    margin-top: $spacing-xs;
+    display: block;
+    line-height: $line-height-relaxed;
+  }
+}
