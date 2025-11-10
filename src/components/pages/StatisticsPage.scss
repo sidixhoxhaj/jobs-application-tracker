@@ -1,0 +1,225 @@
+// Statistics Page Styles
+@use '../../styles/tokens' as *;
+
+.statistics-page {
+  min-height: calc(100vh - 64px);
+  background-color: var(--color-surface);
+
+  &__container {
+    max-width: $container-xl;
+    margin: 0 auto;
+    padding: $spacing-2xl $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: var(--color-text-primary);
+    margin: 0;
+    letter-spacing: $letter-spacing-tight;
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: var(--color-text-secondary);
+    margin-top: $spacing-xs;
+  }
+
+  &__section-title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: var(--color-primary);
+    margin: 0 0 $spacing-md 0;
+    letter-spacing: -0.01em;
+  }
+
+  // Section header (for both overview and charts)
+  &__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+
+  // Empty state
+  &__empty-state {
+    padding: $spacing-2xl;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+    text-align: center;
+    color: var(--color-text-secondary);
+
+    p {
+      margin: 0;
+      font-size: $font-size-base;
+
+      &:not(:last-child) {
+        margin-bottom: $spacing-sm;
+      }
+    }
+  }
+
+  &__empty-hint {
+    font-size: $font-size-sm;
+    color: var(--color-gray-400);
+  }
+
+  // Overview section
+  &__overview {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: $spacing-md;
+  }
+
+  &__overview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: $spacing-md;
+  }
+
+  // Placeholder cards (will be replaced with StatCard component in Phase 5.3)
+  &__placeholder-card {
+    padding: $spacing-lg;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--color-border-dark);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+
+  &__placeholder-label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__placeholder-value {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+  }
+
+  // Charts section
+  &__charts {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  &__full-width-chart {
+    margin-top: $spacing-lg;
+  }
+
+  // Placeholder charts (will be replaced with actual chart components in Phase 5.4-5.9)
+  &__placeholder-chart {
+    padding: $spacing-xl;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-md;
+    min-height: 300px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--color-border-dark);
+      box-shadow: var(--shadow-sm);
+    }
+
+    h3 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      color: var(--color-primary);
+      margin: 0;
+      text-align: center;
+    }
+
+    p {
+      font-size: $font-size-sm;
+      color: var(--color-text-secondary);
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+
+// Responsive design
+@include mobile-only {
+  .statistics-page {
+    &__container {
+      padding: $spacing-lg $spacing-md;
+      gap: $spacing-lg;
+    }
+
+    &__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__title {
+      font-size: $font-size-xl;
+    }
+
+    &__section-header {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &__overview-grid,
+    &__overview-cards {
+      grid-template-columns: 1fr;
+    }
+
+    &__charts-grid {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+    }
+
+    &__placeholder-chart {
+      min-height: 250px;
+      padding: $spacing-lg;
+    }
+
+    &__empty-state {
+      padding: $spacing-lg;
+    }
+  }
+}
