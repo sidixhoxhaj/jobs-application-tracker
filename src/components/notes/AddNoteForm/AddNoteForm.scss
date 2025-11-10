@@ -1,0 +1,87 @@
+// Add Note Form Styles
+@use '../../../styles/tokens' as *;
+
+.add-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: var(--color-background-secondary);
+  border-radius: $radius-md;
+  border: 1px solid var(--color-border);
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-primary);
+  }
+
+  &__textarea {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-base;
+    font-family: inherit;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    resize: vertical;
+    min-height: 100px;
+    transition: all 0.15s ease;
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+      border-color: var(--color-primary);
+    }
+
+    &:disabled {
+      background: var(--color-background-hover);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    &--error {
+      border-color: var(--color-warning);
+
+      &:focus {
+        outline-color: var(--color-warning);
+      }
+    }
+
+    &::placeholder {
+      color: var(--color-text-tertiary);
+    }
+  }
+
+  &__error {
+    font-size: $font-size-sm;
+    color: var(--color-warning);
+    margin: 0;
+  }
+
+  &__hint {
+    font-size: $font-size-xs;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+// Responsive
+@include mobile-only {
+  .add-note-form {
+    padding: $spacing-md;
+  }
+}

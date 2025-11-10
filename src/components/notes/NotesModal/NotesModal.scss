@@ -1,0 +1,92 @@
+// Notes Modal Styles
+@use '../../../styles/tokens' as *;
+
+.notes-modal {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding: $spacing-lg;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__title-section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    flex: 1;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: var(--color-text-primary);
+    margin: 0;
+    letter-spacing: $letter-spacing-tight;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  &__sort-button {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-secondary);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      background: var(--color-background-secondary);
+      border-color: var(--color-gray-400);
+      color: var(--color-text-primary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Responsive
+@include mobile-only {
+  .notes-modal {
+    &__content {
+      padding: $spacing-md;
+      gap: $spacing-md;
+    }
+
+    &__header {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &__sort-button {
+      justify-content: center;
+    }
+  }
+}
