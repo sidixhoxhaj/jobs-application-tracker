@@ -1,0 +1,84 @@
+// Select Styles
+@use '../../../styles/tokens' as *;
+
+.select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  line-height: $line-height-normal;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-sm center;
+  padding-right: calc($spacing-md + 24px);
+
+  &:hover {
+    border-color: var(--color-gray-400);
+    background-color: var(--color-hover);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-border-focus);
+    box-shadow: 0 0 0 1px var(--color-border-focus);
+    background-color: var(--color-background);
+  }
+
+  &:disabled {
+    background-color: var(--color-disabled);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &--error {
+    border-color: var(--color-danger);
+
+    &:focus {
+      border-color: var(--color-danger);
+      box-shadow: 0 0 0 1px var(--color-danger);
+    }
+  }
+
+  // Style optgroup and options within select
+  optgroup {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+    color: var(--color-text-secondary);
+    background-color: var(--color-background-secondary);
+    padding: $spacing-xs $spacing-sm;
+  }
+
+  option {
+    padding: $spacing-sm;
+    font-size: $font-size-base;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+
+    &:hover,
+    &:focus,
+    &:checked {
+      background-color: var(--color-primary);
+      color: white;
+    }
+  }
+}
+
+.select__error {
+  font-size: $font-size-sm;
+  color: var(--color-danger);
+  margin-top: $spacing-xs;
+}
