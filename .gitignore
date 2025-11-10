@@ -28,6 +28,8 @@ dist-ssr
 .env
 .env.local
 .env.*.local
+.plan
+.github
 
 # Build outputs
 build
@@ -35,3 +37,5 @@ coverage
 
 # Testing
 *.test.ts.snap
+.vercel
+.env*.local
