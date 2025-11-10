@@ -1,0 +1,47 @@
+@use '../../../styles/tokens/' as *;
+
+.demo-banner {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-bottom: 1px solid #bae6fd;
+  padding: $spacing-sm 0;
+
+  &__content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    @media (max-width: 768px) {
+      padding: $spacing-md;
+    }
+  }
+
+  &__text {
+    color: $color-text-primary;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+    flex: 1;
+
+    strong {
+      font-weight: 600;
+      color: #0369a1;
+    }
+  }
+}
+
+// Dark mode support
+[data-theme='dark'] .demo-banner {
+  background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+  border-bottom-color: #0e7490;
+
+  &__text {
+    color: $color-white;
+
+    strong {
+      color: #7dd3fc;
+    }
+  }
+}
+
