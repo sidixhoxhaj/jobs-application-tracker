@@ -1,0 +1,98 @@
+// Error Boundary Styles
+@use '../../../styles/tokens' as *;
+
+.error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: $spacing-xl;
+  background-color: var(--color-background-primary);
+
+  &__content {
+    max-width: 600px;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: $spacing-md;
+  }
+
+  &__message {
+    font-size: $font-size-base;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-base;
+    font-weight: 500;
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--color-gray-100);
+      border-color: var(--color-gray-400);
+    }
+
+    &--primary {
+      background-color: $color-black;
+      color: $color-white;
+      border-color: $color-black;
+
+      &:hover {
+        background-color: var(--color-gray-800);
+        border-color: var(--color-gray-800);
+      }
+    }
+  }
+
+  &__details {
+    margin-top: $spacing-xl;
+    text-align: left;
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    padding: $spacing-md;
+    background-color: var(--color-background-secondary);
+  }
+
+  &__summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: $spacing-sm;
+
+    &:hover {
+      color: $color-black;
+    }
+  }
+
+  &__stack {
+    margin-top: $spacing-md;
+    padding: $spacing-md;
+    background-color: var(--color-gray-50);
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+    font-family: monospace;
+    color: var(--color-danger);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
