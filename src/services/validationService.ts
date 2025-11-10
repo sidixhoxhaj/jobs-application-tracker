@@ -9,7 +9,13 @@ export interface ValidationResult {
   errors: Record<string, string>;
 }
 
-// Validate application data against custom fields
+/**
+ * Validate application data against custom field definitions
+ * Checks required fields and type-specific validation rules
+ * @param data - Application data object with field values
+ * @param customFields - Array of custom field definitions
+ * @returns Validation result with isValid flag and error messages
+ */
 export const validateApplicationData = (
   data: Record<string, any>,
   customFields: CustomField[]
@@ -60,7 +66,12 @@ export const validateApplicationData = (
   };
 };
 
-// Validate custom field configuration
+/**
+ * Validate custom field configuration
+ * Ensures field has required properties and valid options for select fields
+ * @param field - Partial custom field object to validate
+ * @returns Validation result with isValid flag and error messages
+ */
 export const validateCustomField = (field: Partial<CustomField>): ValidationResult => {
   const errors: Record<string, string> = {};
 
@@ -88,7 +99,12 @@ const isValidDate = (dateString: string): boolean => {
   return !isNaN(date.getTime());
 };
 
-// Helper: Sanitize string input (prevent XSS)
+/**
+ * Sanitize string input to prevent XSS attacks
+ * Escapes HTML special characters
+ * @param input - Raw string input
+ * @returns Sanitized string with escaped HTML characters
+ */
 export const sanitizeInput = (input: string): string => {
   return input
     .replace(/</g, '&lt;')
@@ -98,15 +114,22 @@ export const sanitizeInput = (input: string): string => {
     .replace(/\//g, '&#x2F;');
 };
 
-// Placeholder for future validation rules
+/**
+ * Validate email address format
+ * @param email - Email address string to validate
+ * @returns True if email format is valid
+ */
 export const validateEmail = (email: string): boolean => {
-  // TODO: Add email validation if needed
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
 
+/**
+ * Validate URL format
+ * @param url - URL string to validate
+ * @returns True if URL format is valid
+ */
 export const validateURL = (url: string): boolean => {
-  // TODO: Add URL validation if needed
   try {
     new URL(url);
     return true;
