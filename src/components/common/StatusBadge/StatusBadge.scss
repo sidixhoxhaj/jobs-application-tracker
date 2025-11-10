@@ -1,0 +1,33 @@
+// StatusBadge Styles
+@use '../../../styles/tokens' as *;
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family-base;
+  font-weight: $font-weight-medium;
+  border-radius: $radius-full;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+
+  // Sizes
+  &--small {
+    height: 20px;
+    padding: 0 $spacing-xs;
+    font-size: $font-size-xs;
+  }
+
+  &--medium {
+    height: 24px;
+    padding: 0 $spacing-sm;
+    font-size: $font-size-xs;
+  }
+
+  // Default styling when no color is provided
+  &--default {
+    background-color: var(--color-background-hover);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-dark);
+  }
+}
