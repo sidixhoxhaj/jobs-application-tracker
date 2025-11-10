@@ -12,7 +12,7 @@ export async function testSupabaseConnection() {
     console.log('✅ Supabase client initialized')
 
     // Test 2: Try to query the applications table
-    const { data: appsData, error: appsError, count: appsCount } = await supabase
+    const { error: appsError, count: appsCount } = await supabase
       .from('applications')
       .select('*', { count: 'exact', head: true })
 

@@ -34,32 +34,6 @@ export const isAuthenticated = async (): Promise<boolean> => {
   }
 };
 
-/**
- * Generic wrapper that routes to correct service based on authentication state
- * For authenticated users: routes to Supabase (async)
- * For demo users: routes to localStorage (sync, wrapped in Promise)
- * 
- * NOTE: This helper is available for future use when supabaseService is implemented.
- * Currently using direct routing in each method for clarity during implementation.
- */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const createServiceMethod = <T extends any[], R>(
-  supabaseMethod: (...args: T) => Promise<R>,
-  localStorageMethod: (...args: T) => R
-) => {
-  return async (...args: T): Promise<R> => {
-    const authenticated = await isAuthenticated();
-    
-    if (authenticated) {
-      // User is authenticated - use Supabase
-      return await supabaseMethod(...args);
-    } else {
-      // Demo mode - use localStorage
-      // Wrap sync result in Promise for consistent async interface
-      return Promise.resolve(localStorageMethod(...args));
-    }
-  };
-};
 
 // ============================================================================
 // APPLICATION METHODS
