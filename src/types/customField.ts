@@ -15,6 +15,7 @@ export interface CustomField {
   type: FieldType;
   required: boolean;
   order: number;
+  showInTable: boolean; // Whether to display this field as a column in the table
   options?: FieldOption[]; // Only for 'select' type fields
   defaultValue?: any; // Optional default value
 }
