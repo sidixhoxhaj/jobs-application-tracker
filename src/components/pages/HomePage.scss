@@ -1,0 +1,190 @@
+// HomePage Styles
+// Landing page with hero image and content sections
+
+@use '../../styles/tokens' as *;
+
+.home-page {
+  height: calc(100vh - 65px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &__container {
+    max-width: $container-xl;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-3xl;
+    align-items: center;
+    border-radius: $radius-lg;
+    padding: $spacing-3xl;
+  }
+
+  &__image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: $radius-md;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  &__description {
+    margin-top: $spacing-sm;
+
+    p {
+      color: var(--color-text-secondary);
+      margin-bottom: $spacing-md;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    li {
+      position: relative;
+      padding-left: $spacing-lg;
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--color-success);
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+  }
+
+  // Tablet responsive: Reduce spacing
+  @media (max-width: $breakpoint-lg) {
+    padding: $spacing-md;
+
+    &__container {
+      gap: $spacing-2xl;
+      padding: $spacing-2xl;
+    }
+
+    &__title {
+      font-size: 2.25rem;
+    }
+
+    &__subtitle {
+      font-size: 1.15rem;
+    }
+  }
+
+  // Mobile responsive: Stack vertically
+  @media (max-width: $breakpoint-md) {
+    min-height: auto;
+    padding: $spacing-md;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+      padding: $spacing-lg;
+    }
+
+    &__image {
+      order: 1;
+
+      img {
+        max-height: 300px;
+      }
+    }
+
+    &__content {
+      order: 2;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__subtitle {
+      font-size: 1.1rem;
+    }
+
+    &__features {
+      li {
+        font-size: 0.9rem;
+      }
+    }
+
+    &__actions {
+      flex-direction: column;
+      gap: $spacing-sm;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  // Small mobile: Further adjustments
+  @media (max-width: $breakpoint-sm) {
+    &__container {
+      padding: $spacing-md;
+      gap: $spacing-lg;
+    }
+
+    &__title {
+      font-size: 1.75rem;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+    }
+
+    &__description {
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
