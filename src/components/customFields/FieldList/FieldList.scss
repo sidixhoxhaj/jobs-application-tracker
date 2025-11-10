@@ -1,0 +1,106 @@
+@use '../../../styles/tokens' as *;
+
+.field-list {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 150px 120px 120px 250px;
+    gap: $spacing-md;
+    padding: $spacing-md $spacing-lg;
+    background: var(--color-background-secondary);
+    border-bottom: 1px solid var(--color-border);
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+  }
+
+  &__col {
+    display: flex;
+    align-items: center;
+
+    &--order,
+    &--required,
+    &--show-in-table {
+      justify-self: center;
+    }
+
+    &--actions {
+      justify-self: end;
+    }
+  }
+
+  &__items {
+    background: var(--color-background-secondary);
+  }
+
+  // Empty state
+  &--empty {
+    border: 1px dashed var(--color-border);
+    background: var(--color-surface);
+  }
+
+  &__empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-3xl;
+    text-align: center;
+  }
+
+  &__empty-icon {
+    color: var(--color-gray-400);
+    margin-bottom: $spacing-md;
+  }
+
+  &__empty-title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: var(--color-text-primary);
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  &__empty-description {
+    font-size: $font-size-sm;
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: 400px;
+    line-height: $line-height-relaxed;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    &__header {
+      display: none;
+    }
+
+    &__mobile-container {
+      padding: $spacing-md;
+    }
+
+    // Responsive
+    @include mobile-only {
+      &__header,
+      &__items {
+        display: none;
+      }
+
+      &__mobile-container {
+        display: block;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    border-radius: $radius-sm;
+    &__empty-state {
+      padding: $spacing-xl;
+    }
+  }
+}

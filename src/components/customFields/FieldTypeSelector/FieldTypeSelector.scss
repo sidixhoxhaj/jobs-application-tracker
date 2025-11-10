@@ -1,0 +1,44 @@
+@use '../../../styles/tokens' as *;
+
+.field-type-selector {
+  &__select {
+    width: 100%;
+    padding: $spacing-input;
+    padding-right: 2.5rem;
+    font-size: $font-size-sm;
+    font-family: $font-family-base;
+    font-weight: $font-weight-normal;
+    color: var(--color-text-primary);
+    background-color: var(--color-background-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23525252' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right $spacing-sm center;
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+    outline: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:hover {
+      border-color: var(--color-gray-400);
+      background-color: var(--color-background-secondary);
+    }
+
+    &:focus {
+      border-color: var(--color-primary);
+      background-color: var(--color-background-secondary);
+      box-shadow: 0 0 0 1px var(--color-border-focus);
+    }
+
+    // Improve option styling in select
+    option {
+      padding: $spacing-sm;
+      font-size: $font-size-sm;
+      color: var(--color-text-primary);
+      background: var(--color-background);
+    }
+  }
+}

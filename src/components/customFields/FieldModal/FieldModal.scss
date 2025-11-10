@@ -1,0 +1,21 @@
+@use '../../../styles/tokens' as *;
+
+.field-modal {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__options {
+    padding-top: $spacing-sm;
+  }
+}
+
+// Modal container styles for better scrolling
+.field-modal-container {
+  .modal__content {
+    max-height: 95vh;
+  }
+}
