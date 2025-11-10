@@ -1,0 +1,80 @@
+// TableHeader Styles
+@use '../../../styles/tokens' as *;
+
+.table-header {
+  &__row {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__cell {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-secondary);
+    background-color: var(--color-background-secondary);
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    &:first-child {
+      padding-left: $spacing-lg;
+    }
+
+    &:last-child {
+      padding-right: $spacing-lg;
+    }
+
+    &--active {
+      color: var(--color-text-primary);
+    }
+
+    &--actions {
+      width: 180px;
+      text-align: center;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--color-text-primary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-border-focus);
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__sort-icon {
+    flex-shrink: 0;
+    transition: opacity 0.15s ease;
+
+    &--inactive {
+      opacity: 0.3;
+
+      .table-header__button:hover & {
+        opacity: 0.6;
+      }
+    }
+
+    &--asc,
+    &--desc {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+// TableFilters Styles
+@use '../../../styles/tokens' as *;
+
+.table-filters {
+  gap: $spacing-md;
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  grid-template-areas: 
+    "search actions"
+    "dropdowns dropdowns";
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 6fr 6fr;
+  }
+
+  &__search {
+    grid-area: search;
+    width: 100%;
+  }
+
+  &__actions {
+    grid-area: actions;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__dropdowns {
+    grid-area: dropdowns;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    > * {
+      width: 100%;
+      min-width: 150px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__dropdowns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    > * {
+      width: 100%;
+      min-width: 150px;
+    }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-size: 11px;
+    font-weight: $font-weight-semibold;
+    border-radius: $radius-full;
+    margin-left: $spacing-xs;
+  }
+
+  // Responsive: Mobile
+  @include mobile-only {
+    padding: $spacing-md;
+
+    &__dropdowns {
+      flex-direction: column;
+
+      > * {
+        width: 100%;
+        min-width: 100%;
+      }
+    }
+  }
+}

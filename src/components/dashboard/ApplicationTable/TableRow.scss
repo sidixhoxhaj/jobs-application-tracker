@@ -1,0 +1,99 @@
+// TableRow Styles
+@use '../../../styles/tokens' as *;
+
+.table-row {
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--color-hover);
+  }
+
+  &__cell {
+    padding: $spacing-md;
+    font-size: $font-size-sm;
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+
+    &:first-child {
+      padding-left: $spacing-lg;
+    }
+
+    &:last-child {
+      padding-right: $spacing-lg;
+    }
+
+    &--actions {
+      text-align: center;
+    }
+  }
+
+  &__empty {
+    color: var(--color-text-disabled);
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: $spacing-xs;
+  }
+
+  &__action {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-sm;
+    color: var(--color-text-secondary);
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background-color: var(--color-hover);
+      color: var(--color-text-primary);
+      border-color: var(--color-border);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-border-focus);
+      outline-offset: 2px;
+    }
+
+    &--danger {
+      &:hover {
+        background-color: var(--color-hover);
+        color: var(--color-danger);
+        border-color: var(--color-danger);
+        opacity: 0.9;
+      }
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-size: 10px;
+    font-weight: $font-weight-semibold;
+    border-radius: $radius-full;
+    line-height: 1;
+  }
+}

@@ -1,0 +1,13 @@
+// ApplicationModal Styles
+@use '../../../styles/tokens' as *;
+
+.application-modal {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+
+  // Mobile responsiveness
+  @include mobile-only {
+    gap: $spacing-md;
+  }
+}

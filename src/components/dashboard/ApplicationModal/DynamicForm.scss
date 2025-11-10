@@ -1,0 +1,61 @@
+// DynamicForm Styles
+@use '../../../styles/tokens' as *;
+
+.dynamic-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  &__textarea {
+    width: 100%;
+    padding: $spacing-sm;
+    font-family: $font-family-base;
+    font-size: $font-size-sm;
+    color: var(--color-text-primary);
+    background-color: var(--color-background-secondary);
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    transition: all 0.15s ease;
+    resize: vertical;
+    min-height: 80px;
+
+    &::placeholder {
+      color: var(--color-text-disabled);
+    }
+
+    &:hover:not(:disabled):not(:focus) {
+      border-color: var(--color-gray-400);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-border-focus);
+      box-shadow: 0 0 0 1px var(--color-border-focus);
+    }
+
+    &:disabled {
+      background-color: var(--color-disabled);
+      color: var(--color-text-disabled);
+      cursor: not-allowed;
+    }
+
+    &--error {
+      border-color: var(--color-danger);
+
+      &:focus {
+        border-color: var(--color-danger);
+        box-shadow: 0 0 0 1px var(--color-danger);
+      }
+    }
+  }
+
+  // Mobile responsiveness
+  @include mobile-only {
+    gap: $spacing-md; // Slightly more spacing on mobile
+
+    &__textarea {
+      min-height: 100px; // Larger textarea on mobile
+      font-size: $font-size-base;
+    }
+  }
+}
