@@ -1,0 +1,65 @@
+// DateInput Component Styles
+@use '../../../styles/tokens' as *;
+
+.date-input {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: 500;
+    color: $color-text-primary;
+  }
+
+  &__required {
+    color: $color-danger;
+    margin-left: 2px;
+  }
+
+  &__field {
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $color-border;
+    border-radius: 4px;
+    font-size: $font-size-base;
+    color: $color-text-primary;
+    background-color: $color-white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: monospace; // Better for date display
+    letter-spacing: 0.5px;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+
+    &:disabled {
+      background-color: $color-background-secondary;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    &::placeholder {
+      color: $color-text-tertiary;
+    }
+
+    &--error {
+      border-color: $color-danger;
+
+      &:focus {
+        border-color: $color-danger;
+        box-shadow: 0 0 0 3px rgba($color-danger, 0.1);
+      }
+    }
+  }
+
+  &__error {
+    font-size: $font-size-sm;
+    color: $color-danger;
+  }
+}

@@ -1,0 +1,119 @@
+// Input Styles
+@use '../../../styles/tokens' as *;
+
+.input {
+  display: inline-flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  &__required {
+    color: var(--color-danger);
+    font-size: $font-size-sm;
+  }
+
+  &__field {
+    height: 40px;
+    padding: 0 $spacing-sm;
+    font-family: $font-family-base;
+    font-size: $font-size-sm;
+    color: var(--color-text-primary);
+    background-color: var(--color-background-secondary);
+    border: 1px solid var(--color-border-dark);
+    border-radius: $radius-sm;
+    transition: all 0.15s ease;
+    width: 100%;
+
+    &::placeholder {
+      color: var(--color-text-disabled);
+    }
+
+    &:hover:not(:disabled):not(:focus) {
+      border-color: var(--color-gray-400);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-border-focus);
+      box-shadow: 0 0 0 1px var(--color-border-focus);
+    }
+
+    &:disabled {
+      background-color: var(--color-disabled);
+      color: var(--color-text-disabled);
+      cursor: not-allowed;
+    }
+
+    &--error {
+      border-color: var(--color-danger);
+
+      &:focus {
+        border-color: var(--color-danger);
+        box-shadow: 0 0 0 1px var(--color-danger);
+      }
+    }
+
+    // Date input specific styles
+    &[type='date'],
+    &[type='datetime-local'] {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      &::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.6;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    // Number input specific styles
+    &[type='number'] {
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+      appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
+  &__error {
+    font-size: $font-size-xs;
+    color: var(--color-danger);
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  &__helper {
+    font-size: $font-size-xs;
+    color: var(--color-text-secondary);
+  }
+
+  // Mobile responsiveness
+  @include mobile-only {
+    &__field {
+      height: 44px; // Larger touch target
+      font-size: $font-size-base; // Slightly larger font
+    }
+  }
+}
