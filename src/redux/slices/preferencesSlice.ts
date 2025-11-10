@@ -24,7 +24,7 @@ const preferencesSlice = createSlice({
     setDefaultPagination: (state, action: PayloadAction<number>) => {
       state.defaultPagination = action.payload;
     },
-    setPreferences: (state, action: PayloadAction<PreferencesState>) => {
+    setPreferences: (_state, action: PayloadAction<PreferencesState>) => {
       return action.payload;
     },
   },

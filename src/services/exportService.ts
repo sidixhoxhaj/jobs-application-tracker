@@ -82,12 +82,12 @@ export const exportToCSV = (
 };
 
 // Placeholder for future export formats
-export const exportToJSON = (applications: Application[]): void => {
+export const exportToJSON = (_applications: Application[]): void => {
   // TODO: Implement JSON export
   console.log('JSON export not yet implemented');
 };
 
-export const exportToPDF = (applications: Application[]): void => {
+export const exportToPDF = (_applications: Application[]): void => {
   // TODO: Implement PDF export (Phase 8 or later)
   console.log('PDF export not yet implemented');
 };
