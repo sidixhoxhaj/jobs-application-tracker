@@ -4,12 +4,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import applicationsReducer from './slices/applicationsSlice';
 import customFieldsReducer from './slices/customFieldsSlice';
 import preferencesReducer from './slices/preferencesSlice';
+import chartConfigsReducer from './slices/chartConfigsSlice';
 
 export const store = configureStore({
   reducer: {
     applications: applicationsReducer,
     customFields: customFieldsReducer,
     preferences: preferencesReducer,
+    chartConfigs: chartConfigsReducer,
   },
 });
 
