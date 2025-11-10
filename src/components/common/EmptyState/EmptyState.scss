@@ -1,0 +1,42 @@
+// EmptyState Styles
+@use '../../../styles/tokens' as *;
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl * 2;
+  text-align: center;
+  color: var(--color-text-secondary);
+
+  &__icon {
+    margin-bottom: $spacing-lg;
+    color: var(--color-text-disabled);
+    font-size: 3rem;
+
+    svg {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 $spacing-sm;
+  }
+
+  &__message {
+    font-size: $font-size-base;
+    color: var(--color-text-secondary);
+    margin: 0 0 $spacing-xl;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+
+  &__action {
+    margin-top: $spacing-md;
+  }
+}
