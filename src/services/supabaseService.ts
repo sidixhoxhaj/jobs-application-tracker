@@ -102,11 +102,10 @@ export const saveApplication = async (application: Application): Promise<Applica
   try {
     const userId = await getCurrentUserId();
 
-    // Insert application
+    // Insert application (let Supabase generate UUID for id)
     const { data: appData, error: appError } = await supabase
       .from('applications')
       .insert({
-        id: application.id,
         user_id: userId,
         created_at: application.createdAt,
         updated_at: application.updatedAt,
@@ -120,11 +119,10 @@ export const saveApplication = async (application: Application): Promise<Applica
       throw appError;
     }
 
-    // Insert notes if any
+    // Insert notes if any (also let Supabase generate UUIDs for note ids)
     if (application.notes && application.notes.length > 0) {
       const notesToInsert = application.notes.map(note => ({
-        id: note.id,
-        application_id: application.id,
+        application_id: appData.id, // Use the generated UUID
         user_id: userId,
         content: note.content,
         created_at: note.createdAt,
@@ -553,7 +551,7 @@ export const loadDemoData = async (): Promise<boolean> => {
     const applicationPromises = DEMO_APPLICATIONS.map(async (app) => {
       const { id, notes, createdAt, updatedAt, ...appData } = app;
 
-      // Insert application
+      // Insert application (let Supabase generate UUID)
       const { data: insertedApp, error: appError } = await supabase
         .from('applications')
         .insert({
@@ -570,7 +568,7 @@ export const loadDemoData = async (): Promise<boolean> => {
         return;
       }
 
-      // Insert notes for this application
+      // Insert notes for this application (let Supabase generate UUIDs)
       if (notes && notes.length > 0 && insertedApp) {
         const notesData = notes.map((note) => ({
           application_id: insertedApp.id,
